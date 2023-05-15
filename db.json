@@ -1,10 +1,22 @@
 {
-  "recipes": {
-    "name": "Mössö",
-    "author": "Muumi",
-    "country": "Country 1",
-    "quantity": "1 dl",
-    "ingredient": "milk",
-    "instructions": "shake and bake till it's done."
-  }
+  "recipes": [
+    {
+      "name": "Chocolate Suprise",
+      "author": "Muumi",
+      "country": "Country 1",
+      "quantity": "1",
+      "ingredient": "Chocolate",
+      "instructions": "Take chocolate in your hand and put it in your mouth.",
+      "id": 1
+    },
+    {
+      "name": "Tipsy",
+      "author": "Muumi",
+      "country": "Country 2",
+      "quantity": "1 l",
+      "ingredient": "Wine",
+      "instructions": "Drink.",
+      "id": 2
+    }
+  ]
 }
