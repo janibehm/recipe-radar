@@ -1,0 +1,10 @@
+{
+  "recipes": {
+    "name": "Mössö",
+    "author": "Muumi",
+    "country": "Country 1",
+    "quantity": "1 dl",
+    "ingredient": "milk",
+    "instructions": "shake and bake till it's done."
+  }
+}
