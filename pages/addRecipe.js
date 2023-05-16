@@ -1,23 +1,31 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from '../styles/recipe.module.css';
 import axios from 'axios';
 
-const countries = [
-  'Country 1',
-  'Country 2',
-  'Country 3',
-  // Add more countries to the list
-];
-
 const RecipePage = () => {
-  const [recipes,setRecipes] = useState('');
+  const [recipes, setRecipes] = useState([]);
   const [name, setName] = useState('');
   const [author, setAuthor] = useState('');
   const [country, setCountry] = useState('');
   const [quantity, setQuantity] = useState('');
   const [ingredient, setIngredient] = useState('');
   const [instructions, setInstructions] = useState('');
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    fetchCountries();
+  }, []);
+
+  const fetchCountries = async () => {
+    try {
+      const response = await axios.get('https://restcountries.com/v3.1/all');
+      const countriesData = response.data.map((country) => country.name.common);
+      setCountries(countriesData);
+    } catch (error) {
+      console.error('Failed to fetch countries:', error);
+    }
+  };
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -77,7 +85,6 @@ const RecipePage = () => {
       <h1>Recipe Page</h1>
       <Link href="/">Go to Home Page</Link>
       <Link href="/recipes">Find recipes</Link>
-   
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="name">Name:</label>
@@ -101,18 +108,16 @@ const RecipePage = () => {
 
           <div>
             <label htmlFor="country">Recipe is from:</label>
-            <select required
-              id="country"
-              value={country}
-              onChange={handleCountryChange}
-            >
-              <option value="">Select a country</option>
-              {countries.map((country) => (
-                <option value={country} key={country}>
-                  {country}
-                </option>
-              ))}
-            </select>
+            <select required id="country" value={country} onChange={handleCountryChange}>
+            <option value="">Select a country</option>
+            {countries.map((countryName) => (
+              <option value={countryName} key={countryName}>
+                {countryName}
+              </option>
+            ))}
+          </select>
+
+
           </div>
 
           <div>
