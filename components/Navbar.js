@@ -8,9 +8,9 @@ const Navbar = () => {
             <div className={styles.logo}>
                 <Link href="/">
                     <Image
-                        src="/profile.png"
-                        width={500}
-                        height={500}
+                        src="/logo.png"
+                        width={30}
+                        height={30}
                         alt="Logo"
                     />
                 </Link>
@@ -25,3 +25,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

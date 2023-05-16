@@ -26,6 +26,25 @@
       "ingredient": "cheese and garlic",
       "instructions": "Add carlic to bread and bake.",
       "id": 3
+    },
+    {
+      "name": "Burger",
+      "author": "Nipsu",
+      "country": "Andorra",
+      "quantity": "1",
+      "ingredient": "Beef",
+      "instructions": "Add beef between buns.",
+      "id": 4
+    },
+    {
+      "name": "Burger King",
+      "author": "Wild Willy",
+      "country": "United States",
+      "quantity": "1",
+      "ingredient": "1",
+      "instructions": "Add burger on pan.",
+      "imageUrl": "https://media.istockphoto.com/id/1398630614/fi/valokuva/pekonijuustohampurilainen-paahdetulla-pullalla.jpg?s=1024x1024&w=is&k=20&c=ODJ6D6cg7Ea0dmz9zeb7i4RUIawyl4kUQijIQ1AlaTc=",
+      "id": 5
     }
   ]
 }

@@ -1,0 +1,17 @@
+.card {
+    background-color: snow;
+    box-shadow: 0 0 5px rgb(121, 121, 121);
+    width: 200px;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 1rem;
+    text-transform: capitalize;
+    filter: grayscale(100%);
+    transition: all 0.5s;
+    position: relative;
+  }
+  
+  .card:hover {
+    box-shadow: 0 0 20px rgb(121, 121, 121);
+    filter: grayscale(0%);
+  }

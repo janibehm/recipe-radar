@@ -1,6 +1,5 @@
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import styles from '../styles/recipe.module.css';
+import styles from '../styles/addRecipe.module.css';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 
@@ -13,6 +12,7 @@ const RecipePage = () => {
   const [ingredient, setIngredient] = useState('');
   const [instructions, setInstructions] = useState('');
   const [countries, setCountries] = useState([]);
+  const [imageUrl, setImageUrl] = useState('');
 
   useEffect(() => {
     fetchCountries();
@@ -52,6 +52,10 @@ const RecipePage = () => {
     setInstructions(event.target.value);
   };
 
+  const handleImageUrlChange = (event) => {
+    setImageUrl(event.target.value);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log('Form submitted:', {
@@ -61,6 +65,7 @@ const RecipePage = () => {
       quantity,
       ingredient,
       instructions,
+      imageUrl,
     });
 
     const newRecipe = {
@@ -70,6 +75,7 @@ const RecipePage = () => {
       quantity,
       ingredient,
       instructions,
+      imageUrl,
     };
 
     setRecipes(...recipes,newRecipe)
@@ -82,29 +88,30 @@ const RecipePage = () => {
     }
   };
   return (
-    <div className={styles.container}>
+    <div>
       <Navbar/>
-      <h1>Recipe Page</h1>
-      <Link href="/">Go to Home Page</Link>
-      <Link href="/recipes">Find recipes</Link>
+      <div className={styles.container}>
+      <h1>Add new recipe</h1>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="name">Name:</label>
-            <input required
+            <input 
               type="text"
               id="name"
               value={name}
               onChange={handleNameChange}
+              required
             />
           </div>
 
           <div>
             <label htmlFor="author">Author:</label>
-            <input required
+            <input 
               type="text"
               id="author"
               value={author}
               onChange={handleAuthorChange}
+              required
             />
           </div>
 
@@ -124,26 +131,28 @@ const RecipePage = () => {
 
           <div>
             <label htmlFor="quantity">Quantity:</label>
-            <input required
+            <input 
               type="text"
               id="quantity"
               value={quantity}
               onChange={handleQuantityChange}
+              required
             />
           </div>
 
           <div>
             <label htmlFor="ingredient">Ingredient:</label>
-            <input required
+            <input 
               type="text"
               id="ingredient"
               value={ingredient}
               onChange={handleIngredientChange}
+              required
             />
           </div>
 
           <div>
-            <button type="button">Add more</button>
+            <button type="button">Add more ingredients</button>
           </div>
 
           <div>
@@ -154,12 +163,26 @@ const RecipePage = () => {
               onChange={handleInstructionsChange}
             />
           </div>
+        
+          <div>
+          <label htmlFor="url">Image:</label>
+          <input 
+              type="url" 
+              id="url" 
+              name="url"
+              value={imageUrl}
+              size="30"
+              required
+              onChange={handleImageUrlChange}
+            />
+          </div>
+
 
           <div>
             <button type="submit">Post recipe</button>
-</div>
-</form>
-   <div>
+        </div>
+        </form>
+          <div>
       {recipes.length > 0 &&
         recipes.map((recipe, index) => {
           return (
@@ -175,7 +198,7 @@ const RecipePage = () => {
         })}
     </div>
   </div>
-
+  </div>
 );
 };
 
