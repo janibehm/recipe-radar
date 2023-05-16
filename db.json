@@ -17,6 +17,15 @@
       "ingredient": "Wine",
       "instructions": "Drink.",
       "id": 2
+    },
+    {
+      "name": "French Toast",
+      "author": "Bon Bon Benua",
+      "country": "France",
+      "quantity": "1",
+      "ingredient": "cheese and garlic",
+      "instructions": "Add carlic to bread and bake.",
+      "id": 3
     }
   ]
 }
