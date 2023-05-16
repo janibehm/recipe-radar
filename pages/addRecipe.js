@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import styles from '../styles/recipe.module.css';
 import axios from 'axios';
+import Navbar from '../components/Navbar';
 
 const RecipePage = () => {
   const [recipes, setRecipes] = useState([]);
@@ -82,6 +83,7 @@ const RecipePage = () => {
   };
   return (
     <div className={styles.container}>
+      <Navbar/>
       <h1>Recipe Page</h1>
       <Link href="/">Go to Home Page</Link>
       <Link href="/recipes">Find recipes</Link>

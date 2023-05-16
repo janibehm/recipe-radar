@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Navbar from '../components/Navbar';
 import { useEffect } from 'react';
 import styles from '../styles/index.module.css';
 import axios from 'axios';
@@ -21,8 +21,7 @@ const Recipes = () => {
     <div className={styles.container}>
       <h1>Our recipes</h1>
       
-      <Link href="/">Home</Link>
-      <Link href="/addRecipe">Add your recipes here</Link>
+      <Navbar/>
       
     </div>
   );
