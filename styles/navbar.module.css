@@ -1,0 +1,27 @@
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    height: 3em;
+    padding: 0 20px;
+    z-index: 1;
+}
+
+.logo {
+    margin-left: 10px;
+}
+
+.links {
+    margin-right: 10px;
+}
+
+.links a {
+    margin-left: 10px;
+}

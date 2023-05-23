@@ -1,0 +1,14 @@
+{
+  "recipes": [
+    {
+      "name": "Burger King",
+      "author": "Wild Willy",
+      "country": "United States",
+      "quantity": "1",
+      "ingredient": "1",
+      "instructions": "Add burger on pan.",
+      "imageUrl": "https://media.istockphoto.com/id/1398630614/fi/valokuva/pekonijuustohampurilainen-paahdetulla-pullalla.jpg?s=1024x1024&w=is&k=20&c=ODJ6D6cg7Ea0dmz9zeb7i4RUIawyl4kUQijIQ1AlaTc=",
+      "id": 1
+    }
+  ]
+}

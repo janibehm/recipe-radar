@@ -1,0 +1,30 @@
+.card {
+  background-color: snow;
+  box-shadow: 0 0 5px rgb(121, 121, 121);
+  width: 30em;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  text-transform: capitalize;
+ /*  filter: grayscale(100%); */
+  transition: all 0.5s;
+  position: relative;
+}
+
+/* .card:hover {
+  box-shadow: 0 0 20px rgb(121, 121, 121);
+  filter: grayscale(0%);
+} */
+
+.card h2,
+.card p {
+  text-align: center;
+}
+
+.imageContainer{
+  padding-bottom: 3em;
+  padding-top: 3em;
+}
