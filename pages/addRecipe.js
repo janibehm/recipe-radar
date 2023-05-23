@@ -14,7 +14,7 @@ const RecipePage = () => {
   const [instructions, setInstructions] = useState('');
   const [countries, setCountries] = useState([]);
   const [imageUrl, setImageUrl] = useState('');
-  const [ingredientList, setIngredientList] = useState([]);
+  const [ingredientList, setIngredientList] = useState([{ quantity: '', ingredient: '' }]);
 
   const router = useRouter();
 
@@ -101,6 +101,7 @@ const RecipePage = () => {
     <div>
       <Navbar />
       <div className={styles.container}>
+        
         <h1>Add new recipe</h1>
         <form onSubmit={handleSubmit}>
           <div>
