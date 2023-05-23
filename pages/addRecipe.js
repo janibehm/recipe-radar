@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from '../styles/addRecipe.module.css';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
-import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 const RecipePage = () => {
   const [recipes, setRecipes] = useState([]);
@@ -14,6 +14,9 @@ const RecipePage = () => {
   const [instructions, setInstructions] = useState('');
   const [countries, setCountries] = useState([]);
   const [imageUrl, setImageUrl] = useState('');
+  const [ingredientList, setIngredientList] = useState([]);
+
+  const router = useRouter();
 
   useEffect(() => {
     fetchCountries();
@@ -21,7 +24,7 @@ const RecipePage = () => {
 
   const fetchCountries = async () => {
     try {
-      const response = await axios.get('https://restcountries.com/v3.1/all');
+      const response = await axios.get('https://api.first.org/data/v1/countries');
       const countriesData = response.data.map((country) => country.name.common);
       setCountries(countriesData);
     } catch (error) {
@@ -41,12 +44,10 @@ const RecipePage = () => {
     setCountry(event.target.value);
   };
 
-  const handleQuantityChange = (event) => {
-    setQuantity(event.target.value);
-  };
-
-  const handleIngredientChange = (event) => {
-    setIngredient(event.target.value);
+  const handleIngredientChange = (event, index) => {
+    const updatedIngredients = [...ingredientList];
+    updatedIngredients[index].ingredient = event.target.value;
+    setIngredientList(updatedIngredients);
   };
 
   const handleInstructionsChange = (event) => {
@@ -55,6 +56,10 @@ const RecipePage = () => {
 
   const handleImageUrlChange = (event) => {
     setImageUrl(event.target.value);
+  };
+
+  const handleAddIngredient = () => {
+    setIngredientList([...ingredientList, { quantity: '', ingredient: '' }]);
   };
 
   const handleSubmit = async (event) => {
@@ -67,6 +72,7 @@ const RecipePage = () => {
       ingredient,
       instructions,
       imageUrl,
+      ingredients: ingredientList,
     });
 
     const newRecipe = {
@@ -77,26 +83,29 @@ const RecipePage = () => {
       ingredient,
       instructions,
       imageUrl,
+      ingredients: ingredientList,
     };
 
-    setRecipes(...recipes,newRecipe)
+    setRecipes([...recipes, newRecipe]);
 
     try {
       const response = await axios.post('http://localhost:4000/recipes', newRecipe);
+      router.push('/recipes');
       console.log('Recipe posted:', response.data);
     } catch (error) {
       console.error('Failed to post recipe:', error);
     }
   };
+
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <div className={styles.container}>
-      <h1>Add new recipe</h1>
+        <h1>Add new recipe</h1>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="name">Name:</label>
-            <input 
+            <input
               type="text"
               id="name"
               value={name}
@@ -107,7 +116,7 @@ const RecipePage = () => {
 
           <div>
             <label htmlFor="author">Author:</label>
-            <input 
+            <input
               type="text"
               id="author"
               value={author}
@@ -118,42 +127,45 @@ const RecipePage = () => {
 
           <div>
             <label htmlFor="country">Recipe is from:</label>
-            <select required id="country" value={country} onChange={handleCountryChange}>
-            <option value="">Select a country</option>
-            {countries.map((countryName) => (
-              <option value={countryName} key={countryName}>
-                {countryName}
-              </option>
+            <select id="country" value={country} onChange={handleCountryChange}>
+              <option value="">Select a country</option>
+              {countries.map((countryName) => (
+                <option value={countryName} key={countryName}>
+                  {countryName}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <h3>Ingredients:</h3>
+            {ingredientList.map((ingredient, index) => (
+              <div key={index}>
+                <label htmlFor={`quantity-${index}`}>Quantity:</label>
+                <input
+                  type="text"
+                  id={`quantity-${index}`}
+                  value={ingredient.quantity}
+                  onChange={(event) => handleIngredientChange(event, index)}
+                  required
+                />
+
+                <label htmlFor={`ingredient-${index}`}>Ingredient:</label>
+                <input
+                  type="text"
+                  id={`ingredient-${index}`}
+                  value={ingredient.ingredient}
+                  onChange={(event) => handleIngredientChange(event, index)}
+                  required
+                />
+              </div>
             ))}
-          </select>
-
-
           </div>
 
           <div>
-            <label htmlFor="quantity">Quantity:</label>
-            <input 
-              type="text"
-              id="quantity"
-              value={quantity}
-              onChange={handleQuantityChange}
-              required
-            />
-          </div>
-
-          <div>
-            <label htmlFor="ingredient">Ingredient:</label>
-            <input 
-              type="text"
-              id="ingredient"
-              value={ingredient}
-              onChange={handleIngredientChange}
-              required
-            />
-          </div>
-
-          <div>
-            <button type="button">Add more ingredients</button>
+            <button type="button" onClick={handleAddIngredient}>
+              Add ingredients
+            </button>
           </div>
 
           <div>
@@ -164,12 +176,12 @@ const RecipePage = () => {
               onChange={handleInstructionsChange}
             />
           </div>
-        
+
           <div>
-          <label htmlFor="url">Image:</label>
-          <input 
-              type="url" 
-              id="url" 
+            <label htmlFor="url">Image:</label>
+            <input
+              type="url"
+              id="url"
               name="url"
               value={imageUrl}
               size="30"
@@ -178,30 +190,13 @@ const RecipePage = () => {
             />
           </div>
 
-
           <div>
             <button type="submit">Post recipe</button>
-        </div>
+          </div>
         </form>
-          <div>
-      {recipes.length > 0 &&
-        recipes.map((recipe, index) => {
-          return (
-            <div key={index}>
-              <h2>{recipe.name}</h2>
-              <p>{recipe.author}</p>
-              <p>{recipe.country}</p>
-              <p>{recipe.quantity}</p>
-              <p>{recipe.ingredient}</p>
-              <p>{recipe.instructions}</p>
-              <Image src={recipe.imageUrl} alt={recipe.name} />
-            </div>
-          );
-        })}
+      </div>
     </div>
-  </div>
-  </div>
-);
+  );
 };
 
 export default RecipePage;
