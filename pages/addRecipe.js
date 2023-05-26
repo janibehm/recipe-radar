@@ -9,12 +9,12 @@ const RecipePage = () => {
   const [name, setName] = useState('');
   const [author, setAuthor] = useState('');
   const [country, setCountry] = useState('');
-  const [quantity, setQuantity] = useState('');
-  const [ingredient, setIngredient] = useState('');
   const [instructions, setInstructions] = useState('');
   const [countries, setCountries] = useState([]);
   const [imageUrl, setImageUrl] = useState('');
-  const [ingredientList, setIngredientList] = useState([{ quantity: '', ingredient: '' }]);
+  const [ingredientList, setIngredientList] = useState([
+    { quantity: '', ingredient: '' },
+  ]);
 
   const router = useRouter();
 
@@ -44,12 +44,6 @@ const RecipePage = () => {
     setCountry(event.target.value);
   };
 
-  const handleIngredientChange = (event, index) => {
-    const updatedIngredients = [...ingredientList];
-    updatedIngredients[index].ingredient = event.target.value;
-    setIngredientList(updatedIngredients);
-  };
-
   const handleInstructionsChange = (event) => {
     setInstructions(event.target.value);
   };
@@ -62,36 +56,43 @@ const RecipePage = () => {
     setIngredientList([...ingredientList, { quantity: '', ingredient: '' }]);
   };
 
+  const handleIngredientChange = (event, index) => {
+    const updatedIngredients = [...ingredientList];
+    updatedIngredients[index] = {
+      ...updatedIngredients[index],
+      ingredient: event.target.value,
+    };
+    setIngredientList(updatedIngredients);
+  };
+  
+  const handleQuantityChange = (event, index) => {
+    const updatedIngredients = [...ingredientList];
+    updatedIngredients[index] = {
+      ...updatedIngredients[index],
+      quantity: event.target.value,
+    };
+    setIngredientList(updatedIngredients);
+  };
+  
+  
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('Form submitted:', {
-      name,
-      author,
-      country,
-      quantity,
-      ingredient,
-      instructions,
-      imageUrl,
-      ingredients: ingredientList,
-    });
-
+  
     const newRecipe = {
       name,
       author,
       country,
-      quantity,
-      ingredient,
       instructions,
       imageUrl,
       ingredients: ingredientList,
     };
-
+  
     setRecipes([...recipes, newRecipe]);
-
+  
     try {
       const response = await axios.post('http://localhost:4000/recipes', newRecipe);
       router.push('/recipes');
-      console.log('Recipe posted:', response.data);
     } catch (error) {
       console.error('Failed to post recipe:', error);
     }
@@ -141,26 +142,25 @@ const RecipePage = () => {
           <div>
             <h3>Ingredients:</h3>
             {ingredientList.map((ingredient, index) => (
-              <div key={index}>
-                <label htmlFor={`quantity-${index}`}>Quantity:</label>
-                <input
-                  type="text"
-                  id={`quantity-${index}`}
-                  value={ingredient.quantity}
-                  onChange={(event) => handleIngredientChange(event, index)}
-                  required
-                />
-
-                <label htmlFor={`ingredient-${index}`}>Ingredient:</label>
-                <input
-                  type="text"
-                  id={`ingredient-${index}`}
-                  value={ingredient.ingredient}
-                  onChange={(event) => handleIngredientChange(event, index)}
-                  required
-                />
-              </div>
-            ))}
+          <div key={index}>
+            <label htmlFor={`ingredient-${index}`}>Ingredient:</label>
+            <input
+              type="text"
+              id={`ingredient-${index}`}
+              value={ingredient.ingredient}
+              onChange={(event) => handleIngredientChange(event, index)}
+              required
+            />
+            <label htmlFor={`quantity-${index}`}>Quantity:</label>
+            <input
+              type="text"
+              id={`quantity-${index}`}
+              value={ingredient.quantity}
+              onChange={(event) => handleQuantityChange(event, index)}
+              required
+            />
+          </div>
+        ))}
           </div>
 
           <div>

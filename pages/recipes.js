@@ -21,22 +21,31 @@ const Recipes = () => {
       <Navbar />
       <div className={styles.container}>
         <h1>Our recipes</h1>
-         <div className={styles.imageContainer}>
-         {data.map((recipe) => (
-          <Card
-            key={recipe.id}
-            name={recipe.name}
-            author={recipe.author}
-            country={recipe.country}
-            quantity={recipe.quantity}
-            ingredient={recipe.ingredient}
-            instructions={recipe.instructions}
-            imageUrl={recipe.imageUrl} 
-            alt={recipe.name} 
-          />
-        ))}
-
-        </div> 
+        <div className={styles.imageContainer}>
+          {data.map((recipe) => (
+            <Card
+              key={recipe.id}
+              name={recipe.name}
+              author={recipe.author}
+              country={recipe.country}
+              instructions={recipe.instructions}
+              imageUrl={recipe.imageUrl}
+              alt={recipe.name}
+            >
+              {recipe.ingredients && recipe.ingredients.length > 0 && (
+                <div>
+                  <h3>Ingredients:</h3>
+                  {recipe.ingredients.map((ingredient, index) => (
+                    <div key={index}>
+                      <p>{ingredient.quantity}</p>
+                      <p>{ingredient.ingredient}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
   );
