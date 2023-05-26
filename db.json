@@ -1,40 +1,30 @@
 {
   "recipes": [
     {
-      "name": "Pepperoni Pizza",
-      "author": "Berlusconi",
-      "country": "",
-      "instructions": "heat and eat",
-      "imageUrl": "https://images.pexels.com/photos/2619967/pexels-photo-2619967.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "name": "Hamburger",
+      "author": "Salvador ",
+      "country": "France",
+      "instructions": "Cook the beef and add all together.",
+      "imageUrl": "https://images.pexels.com/photos/1633578/pexels-photo-1633578.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "ingredients": [
         {
-          "quantity": "20",
-          "ingredient": "Pepperoni"
+          "quantity": "2",
+          "ingredient": "Buns"
         },
         {
-          "quantity": "5 dl",
-          "ingredient": "Chheese"
-        }
-      ],
-      "id": 1
-    },
-    {
-      "name": "Cheese Pasta",
-      "author": "Batman",
-      "country": "",
-      "instructions": "Boilt the pasta and add the cheese",
-      "imageUrl": "https://images.pexels.com/photos/1438672/pexels-photo-1438672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "ingredients": [
-        {
-          "quantity": "5 dl",
-          "ingredient": "Pasta"
+          "quantity": "1",
+          "ingredient": "Meat"
         },
         {
-          "quantity": "2 dl",
-          "ingredient": "Cheese"
+          "quantity": "1",
+          "ingredient": "Tomato"
+        },
+        {
+          "quantity": "1",
+          "ingredient": "Lettuce"
         }
       ],
-      "id": 2
+      "id": 3
     }
   ]
 }
