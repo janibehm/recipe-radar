@@ -17,7 +17,6 @@ const Index = () => {
         </div>
         <h1>Looking for a recipes?</h1>
 
-        {/* Cards */}
         <div className={styles.cardContainer}>
           <Link href="/recipes">
             <div className={styles.card}>Browse recipes</div>
@@ -25,9 +24,9 @@ const Index = () => {
           <Link href="/addRecipe">
             <div className={styles.card}>Add recipes</div>
           </Link>
-          <Link href="/projects">
-            <div className={styles.card}>Want to know more about our projects?</div>
-          </Link>
+          <a href="https://www.bc.fi" target="_blank" rel="noopener noreferrer">
+          <div className={styles.card}>Want to know more about our projects?</div>
+        </a>
           
         </div>
       </div>
