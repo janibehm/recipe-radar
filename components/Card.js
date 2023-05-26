@@ -11,39 +11,39 @@ const Card = ({ name, author, country, instructions, imageUrl, alt, ingredients 
   };
 
   return (
-    <div
-      className={`${styles.cardContainer} ${expanded ? styles.fullscreen : ''}`}
-      onClick={toggleExpanded}
-    >
+    <div className={styles.cardContainer}>
       <div className={styles.card}>
-        <div className={styles.cardHeader}>
-          <div className={styles.cardImage}>
-            <Image src={imageUrl} alt={alt} width={50} height={50} />
-          </div>
-          <h2>{name}</h2>
-        </div>
-        <button 
-          onClick={(e) => {
-            e.stopPropagation();
-            toggleExpanded();
-          }}
-        >
-          {expanded ? 'See less' : 'See more'}
-        </button>
-
-        {expanded && 
-          <div>
-            <p>Author: {author}</p>
-            <p>Country: {country}</p>
-            <p>Instructions: {instructions}</p>
-            <div>
-              <h3>Ingredients:</h3>
-              {ingredients.map((ingredient, index) => (
-                <p key={index}>{ingredient.quantity} of {ingredient.ingredient}</p>
-              ))}
+        <div onClick={toggleExpanded}>
+          <div className={styles.cardHeader}>
+            <div className={styles.cardImage}>
+              <Image src={imageUrl} alt={alt} width={expanded ? 200 : 50} height={expanded ? 200 : 50} />
             </div>
+            <h2>{name}</h2>
           </div>
-        }
+          {expanded && (
+            <div className={styles.cardContent}>
+              <div className={styles.leftContent}>
+                <h3>Ingredients</h3>
+                <table className={styles.table}>
+                  <tbody>
+                    {ingredients.map((ingredient, index) => (
+                      <tr key={index}>
+                        <td className={styles.td}>{ingredient.quantity}</td>
+                        <td className={styles.td}>{ingredient.ingredient}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className={styles.rightContent}>
+                <p>Author: {author}</p>
+                <p>Country: {country}</p>
+                <p>Instructions: {instructions}</p>
+              </div>
+            </div>
+          )}
+        </div>
+        <button onClick={toggleExpanded}>{expanded ? 'See less' : 'See more'}</button>
       </div>
     </div>
   );
