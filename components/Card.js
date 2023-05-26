@@ -11,7 +11,7 @@ const Card = ({ name, author, country, instructions, imageUrl, alt, ingredients 
   };
 
   return (
-    <div className={styles.cardContainer}>
+    <div className={`${styles.cardContainer} ${expanded ? styles.fullscreen : ''}`}>
       <div className={styles.card}>
         <div onClick={toggleExpanded}>
           <div className={styles.cardHeader}>

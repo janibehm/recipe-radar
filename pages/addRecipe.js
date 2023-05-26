@@ -28,7 +28,7 @@ const RecipePage = () => {
       const countriesData = await response.json();
       setCountries(countriesData);
     } catch (error) {
-      console.error('Failed to fetch countries:', error);
+      throw new Error('Failed to fetch countries');
     }
   };
 
@@ -94,7 +94,6 @@ const RecipePage = () => {
       const response = await axios.post('http://localhost:4000/recipes', newRecipe);
       router.push('/recipes');
     } catch (error) {
-      console.error('Failed to post recipe:', error);
     }
   };
 

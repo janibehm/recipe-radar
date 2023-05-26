@@ -1,11 +1,11 @@
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';  // Added useState import
 import Navbar from '../components/Navbar';
 import styles from '../styles/index.module.css';
 import useFetchData from '../hooks/fetchData';
 import Card from '../components/Card';
 
 const Recipes = () => {
-  const [search, setSearch] = useState(""); 
+  const [search, setSearch] = useState("");  // Define the search state
   const { data, loading, error } = useFetchData('http://localhost:4000/recipes');
 
   const filteredData = data.filter(recipe =>

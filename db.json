@@ -25,6 +25,28 @@
         }
       ],
       "id": 3
+    },
+    {
+      "name": "Pepperoni Pizza",
+      "author": "Berlusconi",
+      "country": "Italy",
+      "instructions": "Add all together and bake it on 180c.",
+      "imageUrl": "https://img.freepik.com/free-photo/top-view-cheesy-tomato-pizza-with-olives-sausages-inside-pan-brown-desk-pizza-food-meal-fast-food-cheese-sausage_140725-33843.jpg?w=1380&t=st=1685078347~exp=1685078947~hmac=0679f414e8d041aa632c9b49f39421844e4bf5a363a83a46f17a2481c340a32a",
+      "ingredients": [
+        {
+          "quantity": "1",
+          "ingredient": "Dough"
+        },
+        {
+          "quantity": "20",
+          "ingredient": "Pepperoni"
+        },
+        {
+          "quantity": "1 dl",
+          "ingredient": "Cheese"
+        }
+      ],
+      "id": 4
     }
   ]
 }
