@@ -31,19 +31,8 @@ const Recipes = () => {
               instructions={recipe.instructions}
               imageUrl={recipe.imageUrl}
               alt={recipe.name}
-            >
-              {recipe.ingredients && recipe.ingredients.length > 0 && (
-                <div>
-                  <h3>Ingredients:</h3>
-                  {recipe.ingredients.map((ingredient, index) => (
-                    <div key={index}>
-                      <p>{ingredient.quantity}</p>
-                      <p>{ingredient.ingredient}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </Card>
+              ingredients={recipe.ingredients || []} 
+            />
           ))}
         </div>
       </div>

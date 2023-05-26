@@ -1,59 +1,11 @@
 {
   "recipes": [
     {
-      "name": "Burger King",
-      "author": "Wild Willy",
-      "country": "United States",
-      "quantity": "1",
-      "ingredient": "1",
-      "instructions": "Add burger on pan.",
-      "imageUrl": "https://media.istockphoto.com/id/1398630614/fi/valokuva/pekonijuustohampurilainen-paahdetulla-pullalla.jpg?s=1024x1024&w=is&k=20&c=ODJ6D6cg7Ea0dmz9zeb7i4RUIawyl4kUQijIQ1AlaTc=",
-      "id": 1
-    },
-    {
-      "name": "James Bond",
-      "author": "Shrim Suprise",
-      "country": "",
-      "quantity": "1",
-      "ingredient": "pasta and shripms",
-      "instructions": "boil the pasta and cook the shrimps",
-      "imageUrl": "https://img.freepik.com/free-photo/spaghetti-with-pesto-prawns-served-plate_1220-3041.jpg?w=1380&t=st=1684806573~exp=1684807173~hmac=d348e5c7ff0a0aaf7e7304e5b3b03d3a5e4d33078b3ddd4480fe1e3740ee7244",
-      "id": 2
-    },
-    {
-      "name": "Healthy Delicious",
-      "author": "Mad Max",
-      "country": "",
-      "quantity": "2",
-      "ingredient": "banana and fruits",
-      "instructions": "Put it on the bowl.",
-      "imageUrl": "https://img.freepik.com/free-photo/muesli-with-fruits-served-bowl_1220-7451.jpg?w=1380&t=st=1684808608~exp=1684809208~hmac=9340df285c029e08717dfc85231bbc5118a92be9040a64b8ce53f5089b4b8f94",
-      "id": 3
-    },
-    {
-      "name": "Pepperoni Pizza",
-      "author": "Berlusconi",
-      "country": "",
-      "instructions": "heat and eat!",
-      "imageUrl": "https://th.bing.com/th/id/R.1c0bbc97d4e826668dbd4558aa60ded8?rik=2eOxwVH%2f4zqh2Q&pid=ImgRaw&r=0",
-      "ingredients": [
-        {
-          "quantity": "30",
-          "ingredient": "Pepperoni"
-        },
-        {
-          "quantity": "3 dl",
-          "ingredient": "Cheese"
-        }
-      ],
-      "id": 4
-    },
-    {
       "name": "Pepperoni Pizza",
       "author": "Berlusconi",
       "country": "",
       "instructions": "heat and eat",
-      "imageUrl": "https://media.istockphoto.com/id/910195988/fi/valokuva/pizza-margarita.jpg?s=1024x1024&w=is&k=20&c=TkNRKuIt329wX7DqrWcUbd_nnajFwJAejNQ4k0Zf2lQ=",
+      "imageUrl": "https://images.pexels.com/photos/2619967/pexels-photo-2619967.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "ingredients": [
         {
           "quantity": "20",
@@ -61,10 +13,28 @@
         },
         {
           "quantity": "5 dl",
+          "ingredient": "Chheese"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "Cheese Pasta",
+      "author": "Batman",
+      "country": "",
+      "instructions": "Boilt the pasta and add the cheese",
+      "imageUrl": "https://images.pexels.com/photos/1438672/pexels-photo-1438672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "ingredients": [
+        {
+          "quantity": "5 dl",
+          "ingredient": "Pasta"
+        },
+        {
+          "quantity": "2 dl",
           "ingredient": "Cheese"
         }
       ],
-      "id": 5
+      "id": 2
     }
   ]
 }
