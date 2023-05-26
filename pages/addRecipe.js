@@ -24,8 +24,8 @@ const RecipePage = () => {
 
   const fetchCountries = async () => {
     try {
-      const response = await axios.get('https://api.first.org/data/v1/countries');
-      const countriesData = response.data.map((country) => country.name.common);
+      const response = await fetch('/countries.json');
+      const countriesData = await response.json();
       setCountries(countriesData);
     } catch (error) {
       console.error('Failed to fetch countries:', error);
