@@ -1,5 +1,7 @@
 Awesome recipe app where you can find your favourite dishes!
 
+<img width="1435" alt="recipe-app" src="https://github.com/janibehm/recipe-radar/assets/71294621/48950e58-a0d7-4fda-9833-1cba0abf2f26">
+
 ## Getting Started
 
 First, run the development server:
